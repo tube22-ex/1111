@@ -12,8 +12,8 @@ class Num {
         const mode = localStorage.getItem('spaceMode');
         const s = (mode != undefined ) ? mode : false;
         console.log(s);
-        this.is_Checked = (typeof s !== 'boolean') ? this.toBoolean(s) : s;
-        this.checkbox.checked = this.is_Checked;
+        this.is_Checked = false;
+        this.checkbox.checked = false;
         this.isPaused = false;
         this.list_1 = ["1","１","一","いち"];
     }
@@ -26,8 +26,7 @@ class Num {
         this.InputCustomNum.addEventListener('change',()=>{this.InputCustomNumEvent()});
         this.InputNum.addEventListener('change',(e)=>{this.InputNumCheck(e.target.value)});
         this.checkbox.addEventListener('change',(e)=>{
-            localStorage.setItem('spaceMode', e.target.checked);
-            this.is_Checked = e.target.checked;
+            this.is_Checked = false;
             this.checkbox.checked = this.is_Checked;
         })
         this.pauseBtn.addEventListener('click',()=>{
